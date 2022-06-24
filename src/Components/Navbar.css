@@ -1,0 +1,16 @@
+.container-fluid>a{
+    font-famiy:serif;
+    color:rgb(8, 86, 131);
+    animation:title 3s linear infinite;
+    }
+    @keyframes title{
+from{
+    transform:scale(0.5);
+}
+
+to{
+    transform:scale(1);
+}
+    }
+    
+    
