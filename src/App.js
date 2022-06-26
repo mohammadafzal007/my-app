@@ -1,9 +1,16 @@
 import "./App.css";
 import Navbar from "./Components/Navbar";
-
 import TextForm from "./Components/TextForm";
 import React, { useState } from "react";
 import Alert from "./Components/Alert";
+import About from "./Components/About";
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+
 
 function App() {
   const [btntext, setbtntext] = useState("Enable Dark Mode");
@@ -36,23 +43,31 @@ function App() {
   };
   return (
     <>
+    <Router>
+    
       <div>
-        <Navbar
-          title="Text Analyzer"
-          mode={mode}
-          togglemode={togglemode}
-          btntext={btntext}
+      
+        <Navbar title="Text Analyzer"  mode={mode} togglemode={togglemode}   btntext={btntext}
         />
         <Alert alert={alert} />
         <div className="container  my-3">
-          <TextForm
+        <Routes>
+          <Route path="/about" element={<About />} />
+           
+          
+          <Route path="/" element={     <TextForm
             heading="Enter Text to Analyze"
             mode={mode}
             showalert={showalert}
             setalert={setalert}
-          />
+          />}>    
+     
+          </Route>
+        </Routes>
+         
         </div>
       </div>
+      </Router>
     </>
   );
 }
